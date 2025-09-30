@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STANHOLE TRADING AND PROJECTS</title>
+    <link rel="icon" href="stanLogo.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --navy-blue: #001f3f;
+            --light-blue: #00A9E0;
+            --orange: #FF851B;
+            --grey: #AAAAAA;
+            --dark-grey: #374151; /* text-gray-700 */
+        }
+        body {
+            background-color: #f9fafb; /* bg-gray-50 */
+            color: var(--dark-grey);
+            font-family: 'Inter', sans-serif;
+        }
+        .bg-navy-blue { background-color: var(--navy-blue); }
+        .text-light-blue { color: var(--light-blue); }
+        .bg-orange-500 { background-color: var(--orange); }
+        .text-orange-500 { color: var(--orange); }
+        .border-orange-500 { border-color: var(--orange); }
+        .hover\:bg-orange-600:hover { background-color: #E67817; }
+        .bg-gray-800 { background-color: #1F2937; }
+        .shadow-light-blue\/20 { box-shadow: 0 10px 15px -3px rgba(0, 169, 224, 0.1), 0 4px 6px -2px rgba(0, 169, 224, 0.05); }
+        .shadow-light-blue\/30 { box-shadow: 0 10px 20px -5px rgba(0, 169, 224, 0.2), 0 5px 10px -5px rgba(0, 169, 224, 0.1); }
+        .shadow-light-blue\/40 { box-shadow: 0 15px 30px -5px rgba(0, 169, 224, 0.3), 0 8px 15px -5px rgba(0, 169, 224, 0.2); }
+        
+        @keyframes fade-in-down-slow {
+            0% { opacity: 0; transform: translateY(-30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fade-in-up-slow {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-down-slow { animation: fade-in-down-slow 1s ease-out forwards; }
+        .animate-fade-in-up-slow { animation: fade-in-up-slow 1s ease-out 0.3s forwards; }
+        .delay-500 { animation-delay: 0.5s; }
+
+        /* Animation class */
+        .animated-section {
+            transition: all 1000ms ease-out;
+            opacity: 0;
+            transform: translateY(64px) skewY(2deg);
+        }
+        .animated-section.is-visible {
+            opacity: 1;
+            transform: translateY(0) skewY(0);
+        }
+        /* Floating Action Buttons */
+        .floating-buttons {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            z-index: 50;
+        }
+        .floating-buttons a {
+            width: 3.5rem; /* 56px */
+            height: 3.5rem; /* 56px */
+            border-radius: 9999px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem; /* 24px */
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transition: all 0.2s ease-in-out;
+        }
+        .floating-buttons a:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.1);
+        }
+        .fab-whatsapp { background-color: #25D366; }
+        .fab-call { background-color: #3B82F6; }
+        .fab-email { background-color: #6B7280; }
+
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- HEADER -->
+    <header class="bg-white/80 backdrop-blur-sm sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <button data-page="home" class="nav-link flex items-center space-x-4">
+                <div class="w-12 h-12 bg-blue-100 flex items-center justify-center rounded-md">
+                    <!-- LOGO IMAGE: Replace the span with your img tag -->
+                    <!-- Example: <img src="your-logo.png" alt="STANHOLE TRADING AND PROJECTS Logo" class="w-10 h-10"> -->
+                    <img src="stanLogo.png" alt="STANHOLE TRADING AND PROJECTS Logo" class="w-10 h-10">
+                </div>
+                <span class="text-lg font-bold text-navy-blue tracking-wider hidden sm:block">STANHOLE TRADING AND PROJECTS</span>
+            </button>
+            <nav class="hidden md:flex space-x-6">
+                <button data-page="home" class="nav-link text-gray-700 hover:text-orange-500 transition-colors duration-300 font-medium relative group">Home<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full"></span></button>
+                <button data-page="about" class="nav-link text-gray-700 hover:text-orange-500 transition-colors duration-300 font-medium relative group">About Us<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full"></span></button>
+                <button data-page="services" class="nav-link text-gray-700 hover:text-orange-500 transition-colors duration-300 font-medium relative group">Products & Services<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full"></span></button>
+                <button data-page="more-about" class="nav-link text-gray-700 hover:text-orange-500 transition-colors duration-300 font-medium relative group">Our Team<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full"></span></button>
+                <button data-page="structure" class="nav-link text-gray-700 hover:text-orange-500 transition-colors duration-300 font-medium relative group">Company Structure<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full"></span></button>
+            </nav>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-navy-blue focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden transition-all duration-300 ease-in-out md:hidden max-h-0 opacity-0 overflow-hidden">
+            <nav class="px-6 pb-4 flex flex-col space-y-2">
+                 <button data-page="home" class="nav-link text-gray-700 hover:text-orange-500 text-left py-2 transition-colors duration-300">Home</button>
+                 <button data-page="about" class="nav-link text-gray-700 hover:text-orange-500 text-left py-2 transition-colors duration-300">About Us</button>
+                 <button data-page="services" class="nav-link text-gray-700 hover:text-orange-500 text-left py-2 transition-colors duration-300">Products & Services</button>
+                 <button data-page="more-about" class="nav-link text-gray-700 hover:text-orange-500 text-left py-2 transition-colors duration-300">Our Team</button>
+                 <button data-page="structure" class="nav-link text-gray-700 hover:text-orange-500 text-left py-2 transition-colors duration-300">Company Structure</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- HOME PAGE -->
+        <section id="home-page" class="page-section">
+            <!-- HERO IMAGE: Replace the background-image URL with your own image -->
+            <div class="relative bg-cover bg-center text-navy-blue py-32 md:py-48" style="background-image: linear-gradient(rgba(239, 246, 255, 0.8), rgba(239, 246, 255, 0.8)), url('IMG_5726.jpg')">
+                <div class="container mx-auto px-6 text-center relative z-10">
+                    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight mb-4 animate-fade-in-down-slow">OHMITTED FOR EXCEPTIONAL</h1>
+                    <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8 animate-fade-in-up-slow">Specializing in low, medium, and high voltage/mechanical systems for industrial, commercial, and residential sectors across South Africa.</p>
+                    <button data-page="services" class="nav-link bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 group animate-fade-in-up-slow delay-500">
+                        Explore Our Services 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform inline-block"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="py-20 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="animated-section grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <span class="text-light-blue font-semibold tracking-widest">WHO WE ARE</span>
+                            <h2 class="text-3xl md:text-4xl font-bold text-navy-blue mt-2 mb-6">A 100% Black-Owned Company Delivering Excellence</h2>
+                            <p class="text-gray-600 mb-4 text-lg">Stanhole Trading and Projects (Pty) Ltd is a black owned company, 100% shares held man, with a focus on     
+the provision of products and service for low, medium, and high voltage system. 
+Stanhole Trading and Projects (Pty) Ltd is a South African based company which specializes almost exclusively 
+in the installations of electrical cabling, stringing, earthing and electrical equipment</p>
+                            <p class="text-gray-600 text-lg">The involvement of the principals in each project from inception to completion ensures that their experience 
+and expertise is channeled to achieve the client's objective in the most expedient and costs effective manner. 
+The Company employs experienced staffs that are qualified to work Electricity and operates a quality system 
+based on ISO 9000. </p>
+                        </div>
+                        <div class="relative h-80 md:h-96 rounded-lg overflow-hidden shadow-2xl group">
+                           <!-- HOME PAGE IMAGE: Replace the src with your image path -->
+                           <img src="IMG_5734.jpg" alt="STANHOLE TRADING AND PROJECTS Team" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+                           <div class="absolute inset-0 border-4 border-light-blue/0 group-hover:border-light-blue/50 transition-all duration-500 rounded-lg"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="py-20 bg-blue-50">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="animated-section">
+                         <span class="text-orange-500 font-semibold tracking-widest">WHAT WE DO</span>
+                         <h2 class="text-3xl md:text-4xl font-bold text-navy-blue mt-2 mb-12">Our Core Expertise</h2>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="animated-section bg-white p-8 rounded-lg text-left transition-all duration-300 shadow-lg hover:shadow-light-blue/20 hover:-translate-y-2 border border-blue-100">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-orange-500 mb-4"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                            <h3 class="text-2xl font-bold text-navy-blue mb-4">Electrical & Instrumentation</h3>
+                            <p class="text-gray-600 mb-6">Comprehensive solutions including PLC Programming, Transformer Maintenance, Substation Construction, Electrification projects and More.</p>
+                            <button data-page="services" class="nav-link font-semibold text-orange-500 hover:text-orange-400 transition-colors group flex items-center">
+                                Learn More <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                            </button>
+                        </div>
+                        <div class="animated-section" style="transition-delay: 200ms;">
+                            <div class="bg-white p-8 rounded-lg text-left transition-all duration-300 shadow-lg hover:shadow-light-blue/20 hover:-translate-y-2 border border-blue-100">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-orange-500 mb-4"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 0 2l-.15.08a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.38a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1 0-2l.15-.08a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                <h3 class="text-2xl font-bold text-navy-blue mb-4">Mechanical Services</h3>
+                                <p class="text-gray-600 mb-6">Expert supply, maintenance, and installation for HVAC, Pumps, Motors, Crushers, Ventilation Systems and More.</p>
+                                 <button data-page="services" class="nav-link font-semibold text-orange-500 hover:text-orange-400 transition-colors group flex items-center">
+                                    Learn More <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT PAGE -->
+        <section id="about-page" class="page-section hidden">
+             <div class="py-20 bg-white text-navy-blue">
+                <div class="container mx-auto px-6">
+                    <div class="animated-section text-center mb-16">
+                        <h1 class="text-4xl md:text-5xl font-extrabold mb-4">About Us</h1>
+                        <p class="text-lg text-light-blue max-w-3xl mx-auto font-semibold">Our commitment to quality, safety, and customer satisfaction is the foundation of our success.</p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-12 mb-16 items-center">
+                        <div class="animated-section group">
+                            <!-- ABOUT PAGE IMAGE 1: Replace the src with your image path -->
+                            <img src="IMG_5730.jpg" alt="Electrical Substation" class="rounded-lg shadow-2xl group-hover:scale-105 transition-transform duration-500"/>
+                        </div>
+                        <div class="animated-section" style="transition-delay: 200ms;">
+                            <h2 class="text-3xl font-bold mb-4 text-orange-500">Our Objectives</h2>
+                            <p class="text-gray-700 mb-4 text-lg">To form strategic alliance with third parties to promote the interest of Stanhole Trading & Projects (Pty) 
+Ltd, and always provide high quality services, keeping the entity profitable. The business is dedicated to 
+building long-term relationship with customers through: </p>
+                            <p class="text-gray-700 text-lg">Quality Services, Improving and monitering of our employee's performance through training and continuous professional development, Ensuring quality of workmanship, Willing to learn and continuous improvement.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-8 mb-20">
+                        <div class="animated-section bg-blue-50 text-navy-blue p-8 rounded-lg shadow-lg hover:shadow-light-blue/30 hover:-translate-y-2 transition-all duration-300">
+                            <h3 class="text-2xl font-bold mb-3 text-orange-500">Our Mission</h3>
+                            <p class="text-gray-700">To be one of the most popular energy generation and maintenance and other service, offering services to 
+every sector of the individuals and business communities. And it is also our vision to use the experience of 
+the highly professional staff members of our company to deal with the requirements of holistic electrical 
+(heavy current) or both industrial and corporates. </p>
+                        </div>
+                        <div class="animated-section bg-blue-50 text-navy-blue p-8 rounded-lg shadow-lg hover:shadow-light-blue/30 hover:-translate-y-2 transition-all duration-300" style="transition-delay: 200ms;">
+                             <h3 class="text-2xl font-bold mb-3 text-orange-500">Our Vision</h3>
+                            <p class="text-gray-700">The entity’s mission is to provide best possible customer satisfaction, exceed customer expectations 
+through our occupational experience in the industry and related business activities. We are committed 
+to providing the highest level of services to our suppliers and to ensure that every supplier is 
+well served and to sustain a long-term relationship with our job suppliers.</p>
+                        </div>
+                    </div>
+
+                     <div class="animated-section text-center">
+                        <h2 class="text-3xl font-bold mb-8 text-navy-blue">Our Core Values</h2>
+                        <div class="flex flex-wrap justify-center gap-4">
+                            <div class="animated-section bg-blue-100 text-blue-800 font-medium py-3 px-6 rounded-full transition-all duration-300 hover:bg-blue-200 hover:scale-105 shadow-md" style="transition-delay: 0ms;">Honesty</div>
+                            <div class="animated-section bg-blue-100 text-blue-800 font-medium py-3 px-6 rounded-full transition-all duration-300 hover:bg-blue-200 hover:scale-105 shadow-md" style="transition-delay: 100ms;">Respect</div>
+                            <div class="animated-section bg-blue-100 text-blue-800 font-medium py-3 px-6 rounded-full transition-all duration-300 hover:bg-blue-200 hover:scale-105 shadow-md" style="transition-delay: 200ms;">Trust</div>
+                            <div class="animated-section bg-blue-100 text-blue-800 font-medium py-3 px-6 rounded-full transition-all duration-300 hover:bg-blue-200 hover:scale-105 shadow-md" style="transition-delay: 300ms;">Client Satisfaction</div>
+                            <div class="animated-section bg-blue-100 text-blue-800 font-medium py-3 px-6 rounded-full transition-all duration-300 hover:bg-blue-200 hover:scale-105 shadow-md" style="transition-delay: 400ms;">Equal Opportunities</div>
+                            <div class="animated-section bg-blue-100 text-blue-800 font-medium py-3 px-6 rounded-full transition-all duration-300 hover:bg-blue-200 hover:scale-105 shadow-md" style="transition-delay: 500ms;">Integrity</div>
+                            <div class="animated-section bg-blue-100 text-blue-800 font-medium py-3 px-6 rounded-full transition-all duration-300 hover:bg-blue-200 hover:scale-105 shadow-md" style="transition-delay: 600ms;">Women empowerment</div>
+                            <div class="animated-section bg-blue-100 text-blue-800 font-medium py-3 px-6 rounded-full transition-all duration-300 hover:bg-blue-200 hover:scale-105 shadow-md" style="transition-delay: 700ms;">Community involvement</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES PAGE -->
+        <section id="services-page" class="page-section hidden">
+            <div class="py-20 bg-white text-navy-blue">
+                <div class="container mx-auto px-6">
+                    <div class="animated-section text-center mb-16">
+                        <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Products & Services</h1>
+                        <p class="text-lg text-light-blue max-w-3xl mx-auto font-semibold">Delivering a comprehensive range of expert electrical and mechanical services tailored to your needs.</p>
+                    </div>
+
+                    <div class="grid lg:grid-cols-2 gap-12">
+                        <div class="animated-section">
+                            <h2 class="text-3xl font-bold text-orange-500 mb-6 flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 mr-3"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                                Electrical & Instrumentation
+                            </h2>
+                            <div class="bg-blue-50 p-8 rounded-lg shadow-lg">
+                                <ul class="space-y-4">
+                                    <li class="flex items-start"><svg class="w-5 h-5 text-orange-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span class="text-gray-700">PLC Programming including Scada, Components Supply and Installation and maintenance (SIEMANS, SCHNIEDER, ALLEN BRADLEY, ABB ETC) </span></li>
+                                    <li class="flex items-start"><svg class="w-5 h-5 text-orange-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span class="text-gray-700">VSD and Soft Starter Programming and Installation</span></li>
+                                    <li class="flex items-start"><svg class="w-5 h-5 text-orange-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span class="text-gray-700">Sensors, flow meters, scales Installation etc</span></li>
+                                    <li class="flex items-start"><svg class="w-5 h-5 text-orange-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span class="text-gray-700">Network Communication and Automation</span></li>
+                                    <li class="flex items-start"><svg class="w-5 h-5 text-orange-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span class="text-gray-700">Transformer Service, maintenance, and installation</span></li>
+                                    <li class="flex items-start"><svg class="w-5 h-5 text-orange-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span class="text-gray-700">Plant Maintenance and Repairs</span></li>
+                                    <li class="flex items-start"><svg class="w-5 h-5 text-orange-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span class="text-gray-700">Switchgear services, inspection, and installation</span></li>
+                                    <li class="flex items-start"><svg class="w-5 h-5 text-orange-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span class="text-gray-700">Building new Substation up to 11Kv and commission</span></li>
+                                    <li class="flex items-start"><svg class="w-5 h-5 text-orange-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span class="text-gray-700">Installation and repair of MV and LV cables</span></li>
+                                    <li class="flex items-start"><svg class="w-5 h-5 text-orange-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span class="text-gray-700">Termination and Jointing cables</span></li>
+                                    <li class="flex items-start"><svg class="w-5 h-5 text-orange-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span class="text-gray-700">MCC and Substations refurbishment</span></li>
+                                    <li class="flex items-start"><svg class="w-5 h-5 text-orange-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span class="text-gray-700">Installation of Substation fence</span></li>
+                                    <li class="flex items-start"><svg class="w-5 h-5 text-orange-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span class="text-gray-700">Electrification of Rural and Urban areas</span></li>
+                                    <li class="flex items-start"><svg class="w-5 h-5 text-orange-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span class="text-gray-700">Electrification of Schools, Clinics, Offices and Hospitals, Houses, Firms</span></li>
+                                    <li class="flex items-start"><svg class="w-5 h-5 text-orange-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span class="text-gray-700">Connection of prepaid and Conventional meters</span></li>
+                                    <li class="flex items-start"><svg class="w-5 h-5 text-orange-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span class="text-gray-700">Installation of electrical power backup generator and Protection</span></li>
+                                    <li class="flex items-start"><svg class="w-5 h-5 text-orange-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span class="text-gray-700">Issue Electrical COC single phase and three phase</span></li>
+                                    <li class="flex items-start"><svg class="w-5 h-5 text-orange-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span class="text-gray-700">Maintenance and repair all types of Electrical installations</span></li>
+                                    <li class="flex items-start"><svg class="w-5 h-5 text-orange-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span class="text-gray-700">Installation of School Electrical workshops</span></li>
+                                    <li class="flex items-start"><svg class="w-5 h-5 text-orange-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span class="text-gray-700">Air conditioner Service, Maintenance, Repairs and Installation</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="animated-section" style="transition-delay: 200ms;">
+                            <h2 class="text-3xl font-bold text-orange-500 mb-6 flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 mr-3"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 0 2l-.15.08a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.38a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1 0-2l.15-.08a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                Mechanical Services
+                            </h2>
+                             <div class="bg-blue-50 p-8 rounded-lg shadow-lg">
+                                 <ul class="space-y-4">
+                                    <li class="flex items-start"><svg class="w-5 h-5 text-orange-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span class="text-gray-700">HVAC</span></li>
+                                    <li class="flex items-start"><svg class="w-5 h-5 text-orange-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span class="text-gray-700">Air Conditioning</span></li>
+                                    <li class="flex items-start"><svg class="w-5 h-5 text-orange-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span class="text-gray-700">Heat and Ventilation</span></li>
+                                    <li class="flex items-start"><svg class="w-5 h-5 text-orange-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span class="text-gray-700">Pumps and motors</span></li>
+                                    <li class="flex items-start"><svg class="w-5 h-5 text-orange-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span class="text-gray-700">Fluid Mechanics</span></li>
+                                    <li class="flex items-start"><svg class="w-5 h-5 text-orange-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span class="text-gray-700">Crushers and Feeders</span></li>
+                                    <li class="flex items-start"><svg class="w-5 h-5 text-orange-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span class="text-gray-700">Vibrating Screens and Screens Panels</span></li>
+                                 </ul>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="animated-section mt-16">
+                        <!-- SERVICES PAGE IMAGE: Replace the src with your image path -->
+                        <img src="IMG_5733.jpg" alt="Project Showcase" class="w-full h-auto rounded-lg shadow-xl"/>
+                    <br><br><br>
+                    </div>
+                    <div class="animated-section" style="transition-delay: 200ms;">
+                            <h2 class="text-3xl font-bold mb-4 text-orange-500">COMPANIES WE ARE PROVIDING MAINTENANCE, SUPPLY AND INSTALLATION TO:</h2>
+                            <p class="text-gray-700 mb-4 text-lg">1. AFRISAM QUARRY, READY MIX, CEMENT AND SLAGMENT (GAUTENG VENDOR)<br> 
+2. OLIFANTSFONTEIN DOLOMITE MINE<br> 
+3. MCA PROJECTS <br>
+4. LIMPOPO ONCHOLOGY CLINIC<br> 
+5. EDZA HEIGHTS  <br>
+6. ESTATES (BLUE HILLS EQUESTRIAN ESTATE, WOODHILL, CELTIC LODGE, THE ALOE, THORNHILL, 
+EAGLE CREST. <br>
+7. DEPARTMENT OF GAUTENG(HEALTH, EDUCATION,LABOUR,HOME AFFAIRS, CORRECTIONAL 
+SERVICES ECT(GAUTENG VENDOR)<br></p>
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MORE ABOUT (TEAM) PAGE -->
+        <section id="more-about-page" class="page-section hidden">
+             <div class="py-20 bg-white text-navy-blue">
+                <div class="container mx-auto px-6">
+                    <div class="animated-section text-center mb-16">
+                        <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Our Professional Team</h1>
+                        <p class="text-lg text-light-blue max-w-3xl mx-auto font-semibold">The experienced and qualified individuals driving our success.</p>
+                    </div>
+                    
+                    <div class="flex flex-col gap-16">
+                        <div class="animated-section bg-blue-50 rounded-lg shadow-2xl p-8 md:p-12 transition-all duration-500 hover:shadow-light-blue/40 border border-blue-200">
+                            <div class="grid md:grid-cols-3 gap-8 items-center">
+                                <div class="md:col-span-1 flex justify-center">
+                                    <div class="w-48 h-48 rounded-full bg-white border-4 border-orange-500 flex items-center justify-center group-hover:scale-105 transition-transform overflow-hidden">
+                                         <!-- TEAM PAGE IMAGE 1 (PROFILE): Replace the src with your image path -->
+                                         <img src="https://placehold.co/200x200/FFFFFF/333333?text=S.M." alt="Stanley Maphuti Mashita" class="w-full h-full object-cover"/>
+                                    </div>
+                                </div>
+                                <div class="md:col-span-2">
+                                     <h2 class="text-3xl font-bold text-navy-blue">Stanley Maphuti Mashita</h2>
+                                     <p class="text-orange-500 font-semibold text-lg mb-4">Director</p>
+                                     <div class="border-t border-blue-200 pt-4 mt-4">
+                                        <h3 class="font-semibold text-light-blue mb-2">Qualifications:</h3>
+                                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                            <li>National Diploma: Electrical Engineering (VUT)</li>
+                                            <li>N4 Mechanical Engineering</li>
+                                            <li>Section 13 Trade certificate (MQA)-Electrician</li>
+                                            <li>Wireman's License (Installation Electrician - Three Phase)</li>
+                                            <li>C1 Drivers Lisence</li>
+                                            <li>HT (Medium Voltage) certificate</li>
+                                            <li>SDP – First line managing skills programme.</li>
+                                            <li>Occupational Health and Safety activities certificate. ▪ PLC Maintenance service 1,2&3</li>
+                                        </ul>
+                                     </div>
+                                     <div class="border-t border-blue-200 pt-4 mt-4">
+                                        <h3 class="font-semibold text-light-blue mb-2">Experience:</h3>
+                                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                            <li>Exxaro Coal Mine – Electrician/Technician in training</li>
+                                            <li>Green Basin Gold - Electrician</li>
+                                            <li>Xstrata Alloys - Electrician</li>
+                                            <li>Afrisam – E&I Technician</li>
+                                        </ul>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="animated-section bg-blue-50 rounded-lg shadow-2xl p-8 md:p-12 transition-all duration-500 hover:shadow-light-blue/40 border border-blue-200">
+                            <div class="grid md:grid-cols-3 gap-8 items-center">
+                                <div class="md:col-span-1 flex justify-center">
+                                    <div class="w-48 h-48 rounded-full bg-white border-4 border-orange-500 flex items-center justify-center group-hover:scale-105 transition-transform overflow-hidden">
+                                         <!-- TEAM PAGE IMAGE 2 (PROFILE): Replace the src with your image path -->
+                                         <img src="https://placehold.co/200x200/FFFFFF/333333?text=J.M." alt="John Tebe Mokoena" class="w-full h-full object-cover"/>
+                                    </div>
+                                </div>
+                                <div class="md:col-span-2">
+                                     <h2 class="text-3xl font-bold text-navy-blue">John Tebe Mokoena</h2>
+                                     <p class="text-orange-500 font-semibold text-lg mb-4"> Sub-contractor (Engineer)</p>
+                                     <div class="border-t border-blue-200 pt-4 mt-4">
+                                        <h3 class="font-semibold text-light-blue mb-2">Qualifications:</h3>
+                                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                            <li>National Senior Certificate</li>
+                                            <li> Bsc(Elec-Mech) Eng, University of Cape Town ( admitted as Pr.Eng in 2003) </li>
+                                            <li>Diploma Project Management : Damelin</li>
+                                            <li>ECSA registered</li>
+                                        </ul>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="animated-section mt-16">
+                        <h2 class="text-3xl font-bold text-center mb-8 text-navy-blue">Human Resource Plan</h2>
+                         <div class="bg-blue-50 rounded-lg shadow-lg overflow-hidden border border-blue-200">
+                            <table class="w-full text-left">
+                                <thead class="bg-blue-100">
+                                    <tr>
+                                        <th class="p-4 font-semibold text-navy-blue">Role</th>
+                                        <th class="p-4 font-semibold text-navy-blue">Males</th>
+                                        <th class="p-4 font-semibold text-navy-blue">Females</th>
+                                        <th class="p-4 font-semibold text-navy-blue">Age Group</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b border-blue-200">
+                                        <td class="p-4">Senior Member</td><td class="p-4">2</td><td class="p-4">1</td><td class="p-4">30-35</td>
+                                    </tr>
+                                     <tr class="border-b border-blue-200">
+                                        <td class="p-4">Professionals</td><td class="p-4">2</td><td class="p-4">1</td><td class="p-4">25-45</td>
+                                    </tr>
+                                    <tr class="border-b border-blue-200">
+                                        <td class="p-4">Technician</td><td class="p-4">2</td><td class="p-4">-</td><td class="p-4">18-45</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-4">Assistant</td><td class="p-4">4</td><td class="p-4">-</td><td class="p-4">18-40</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- STRUCTURE PAGE -->
+        <section id="structure-page" class="page-section hidden">
+            <div class="py-20 bg-white text-navy-blue min-h-screen">
+                <div class="container mx-auto px-6">
+                    <div class="animated-section text-center mb-16">
+                        <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Company Structure</h1>
+                        <p class="text-lg text-light-blue max-w-3xl mx-auto font-semibold">A clear and effective organizational structure that drives our operations.</p>
+                    </div>
+                    
+                    <div class="animated-section flex flex-col items-center space-y-2">
+                        <!-- This is a diagram, image placement might be tricky. Adding a placeholder at the bottom. -->
+                        <div class="flex flex-col items-center">
+                            <div class="bg-white border-2 border-orange-500 rounded-lg shadow-lg p-4 text-center min-w-[180px] hover:shadow-light-blue/40 hover:-translate-y-1 transition-all">
+                                <h4 class="font-bold text-navy-blue">Managing Member</h4>
+                                <p class="text-sm text-gray-500">STANHOLE TRADING AND PROJECTS (Pty) Ltd</p>
+                            </div>
+                        </div>
+                        <div class="w-px h-8 bg-blue-300"></div>
+                        <div class="flex flex-col items-center">
+                            <div class="bg-white border-2 border-orange-500 rounded-lg shadow-lg p-4 text-center min-w-[180px] hover:shadow-light-blue/40 hover:-translate-y-1 transition-all">
+                                <h4 class="font-bold text-navy-blue">Chief Operations Officer</h4>
+                                <p class="text-sm text-gray-500">(SM Mashita)</p>
+                            </div>
+                        </div>
+
+                        <div class="w-full flex justify-center items-center my-4">
+                            <div class="w-px h-8 bg-blue-300 -mt-8"></div>
+                            <div class="w-4/5 h-px bg-blue-300 absolute"></div>
+                        </div>
+                        
+                        <div class="w-full flex flex-wrap justify-around relative">
+                            <!-- Vertical connectors from horizontal line -->
+                            <div class="absolute top-0 left-[12.5%] w-px h-4 bg-blue-300"></div>
+                            <div class="absolute top-0 left-[37.5%] w-px h-4 bg-blue-300"></div>
+                            <div class="absolute top-0 left-[62.5%] w-px h-4 bg-blue-300"></div>
+                            <div class="absolute top-0 left-[87.5%] w-px h-4 bg-blue-300"></div>
+                        
+                            <div class="flex flex-col items-center m-2"><div class="bg-white border-2 border-blue-200 rounded-lg shadow-lg p-4 text-center min-w-[180px] hover:shadow-light-blue/40 hover:-translate-y-1 transition-all"><h4 class="font-bold text-navy-blue">Marketing Manager</h4><p class="text-sm text-gray-500">(S Moloto)</p></div></div>
+                            <div class="flex flex-col items-center m-2"><div class="bg-white border-2 border-blue-200 rounded-lg shadow-lg p-4 text-center min-w-[180px] hover:shadow-light-blue/40 hover:-translate-y-1 transition-all"><h4 class="font-bold text-navy-blue">General Manager</h4><p class="text-sm text-gray-500">(M Mokoena)</p></div></div>
+                            <div class="flex flex-col items-center m-2"><div class="bg-white border-2 border-blue-200 rounded-lg shadow-lg p-4 text-center min-w-[180px] hover:shadow-light-blue/40 hover:-translate-y-1 transition-all"><h4 class="font-bold text-navy-blue">Safety Officer</h4><p class="text-sm text-gray-500">(H Mphahlele)</p></div></div>
+                            <div class="flex flex-col items-center m-2"><div class="bg-white border-2 border-blue-200 rounded-lg shadow-lg p-4 text-center min-w-[180px] hover:shadow-light-blue/40 hover:-translate-y-1 transition-all"><h4 class="font-bold text-navy-blue">Managing Director</h4><p class="text-sm text-gray-500">(T Rasekganya)</p></div></div>
+                        </div>
+                    </div>
+                    <div class="animated-section mt-16 text-center">
+                        <!-- STRUCTURE PAGE IMAGE: Replace the src with your image path -->
+                        <!-- <img src="https://placehold.co/1000x400/EBF8FF/333333?text=Office+or+Team+Photo" alt="Company Office" class="w-full max-w-4xl mx-auto h-auto rounded-lg shadow-xl"/> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-100 text-gray-700">
+        <div class="container mx-auto px-6 pt-12 pb-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="lg:col-span-2">
+                    <h3 class="text-2xl font-bold text-navy-blue mb-4">STANHOLE TRADING AND PROJECTS</h3>
+                    <p class="max-w-md">Your trusted partner in Electrical & Mechanical Solutions. We are committed to providing the highest level of services and ensuring every client is well served.</p>
+                    <div class="mt-6">
+                        <h4 class="text-lg font-semibold text-navy-blue">Head Office</h4>
+                        <p class="flex items-start mt-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-3 text-orange-500 flex-shrink-0"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            61 Bergrivier Drive, Terenure, Kempton Park, 1619
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-navy-blue mb-4">Contact Info</h3>
+                    <div class="space-y-3">
+                       <p class="flex items-center">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-3 text-orange-500 flex-shrink-0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                           <a href="tel:+27837360290" class="hover:text-orange-500">+27 83 736 0290</a>
+                       </p>
+                       <p class="flex items-center">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-3 text-orange-500 flex-shrink-0"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                           <a href="mailto:info@stanhole.co.za" class="hover:text-orange-500">info@stanhole.co.za</a>
+                       </p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-navy-blue mb-4">Our Branches</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><strong>Polokwane:</strong> Stand No. 902 Makgodu, Moletji</li>
+                        <li><strong>Lephalale:</strong> 10074 Ditloung, Abbotspoort</li>
+                        <li><strong>Pretoria:</strong> 8989 Tamboville, Temba</li>
+                        <li><strong>Witbank:</strong> 19 Sagittarius Avenue,Witbank</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="footer-map-container" class="animated-section mt-12 rounded-lg overflow-hidden border-2 border-blue-200 shadow-xl">
+               <!-- Static Map Image Linking to Google Maps -->
+               <li class="flex items-start space-x-3">
+                                    <i class="fas fa-map-marker-alt mt-1 text-white"></i>
+                                    <a href="https://www.google.com/maps/search/premium+towers+pretoria/@-25.747587,28.1930888,16z?entry=s&sa=X&ved=1t%3A199789"><span>Office 310, Premium Towers, Pretoria Central, SA</span></a>
+                                </li>
+            </div>
+            <div class="animated-element fade-in-up h-full min-h-[300px]">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d2264.378422846315!2d28.19182617734774!3d-25.747315127197158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1spremium%20towers%20pretoria!5e0!3m2!1sen!2sza!4v1758641668493!5m2!1sen!2sza" class="w-full h-full rounded-lg" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+        </div>
+        <div class="bg-gray-200 py-4 mt-8">
+             <div class="container mx-auto px-6 text-center text-gray-600 text-sm">
+                <div class="h-1.5 w-full flex mb-4">
+                    <div class="w-1/3 bg-light-blue"></div>
+                    <div class="w-1/3 bg-orange-500"></div>
+                    <div class="w-1/3 bg-gray-300"></div>
+                </div>
+                <p>&copy; 2025 STANHOLE TRADING AND PROJECTS. All Rights Reserved by Singularity Tech.</p>
+             </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-buttons">
+        <a href="https://wa.me/27837360290" target="_blank" rel="noopener noreferrer" class="fab-whatsapp" aria-label="Chat on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:+27837360290" class="fab-call" aria-label="Call Us">
+            <i class="fas fa-phone"></i>
+        </a>
+        <a href="mailto:info@stanhole.co.za" class="fab-email" aria-label="Email Us">
+            <i class="fas fa-envelope"></i>
+        </a>
+    </div>
+
+    <script>
+
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pageSections = document.querySelectorAll('.page-section');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const footerMapContainer = document.getElementById('footer-map-container');
+
+            function navigateTo(pageId) {
+                // Hide all pages
+                pageSections.forEach(section => {
+                    section.classList.add('hidden');
+                });
+
+                // Trigger animations on the new page's sections
+                const newAnimatedSections = document.querySelectorAll(`#${pageId}-page .animated-section`);
+                newAnimatedSections.forEach(section => {
+                    section.classList.remove('is-visible');
+                });
+                
+                // Show the target page
+                const targetPage = document.getElementById(`${pageId}-page`);
+                if (targetPage) {
+                    targetPage.classList.remove('hidden');
+                    // Re-run observer for the new page
+                    const sectionsToObserve = targetPage.querySelectorAll('.animated-section');
+                    sectionsToObserve.forEach(section => {
+                        observer.observe(section);
+                    });
+                }
+                
+                // Show/hide map
+                if (pageId === 'home' || pageId === 'about') {
+                    footerMapContainer.classList.remove('hidden');
+                } else {
+                    footerMapContainer.classList.add('hidden');
+                }
+
+                // Close mobile menu
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.add('max-h-0', 'opacity-0');
+                
+                window.scrollTo(0, 0);
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const pageId = e.currentTarget.dataset.page;
+                    navigateTo(pageId);
+                });
+            });
+
+            mobileMenuButton.addEventListener('click', () => {
+                const isHidden = mobileMenu.classList.contains('hidden');
+                if (isHidden) {
+                    mobileMenu.classList.remove('hidden');
+                    mobileMenu.classList.remove('max-h-0', 'opacity-0');
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.add('max-h-0', 'opacity-0');
+                }
+            });
+
+            // Intersection Observer for animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            const initialSections = document.querySelectorAll('.page-section .animated-section');
+            initialSections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
+
